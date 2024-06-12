@@ -1,0 +1,3 @@
+com\citiustech\treatement\route\TreatmentActiveMQRouteBuilder.class
+com\citiustech\treatement\processor\SplitterProcessor.class
+com\citiustech\treatement\aggregator\JsonAggregationStrategy.class

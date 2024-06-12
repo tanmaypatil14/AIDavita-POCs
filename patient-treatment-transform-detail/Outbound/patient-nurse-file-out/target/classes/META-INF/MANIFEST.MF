@@ -1,0 +1,23 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1718107047850
+Build-Jdk: 17.0.11
+Built-By: TanmayP2
+Bundle-Blueprint: OSGI-INF/blueprint/patient-nurse-file-out-blueprint.xm
+ l
+Bundle-Description: Camel Content-Based Router Example
+Bundle-ManifestVersion: 2
+Bundle-Name: Camel Content-Based Router Example[patient-nurse-file-out]
+Bundle-SymbolicName: Assignment3-Xlate
+Bundle-Version: 1.0.0.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+Export-Package: com.citiustech.nurse.processor;uses:="org.apache.camel";
+ version="1.0.0",com.citiustech.nurse.route;uses:="org.apache.camel.buil
+ der";version="1.0.0"
+Import-Package: com.citiustech.nurse.processor,org.apache.activemq,org.a
+ pache.camel;version="[2.23,3)",org.apache.camel.builder;version="[2.23,
+ 3)",org.apache.camel.component.file;version="[2.23,3)",org.apache.camel
+ .model;version="[2.23,3)",org.apache.camel.model.dataformat;version="[2
+ .23,3)",org.json;version="[20211205.0,20211206)",org.osgi.service.bluep
+ rint;version="[1.0.0,2.0.0)",org.slf4j;version="[1.7,2)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Tool: Bnd-3.2.0.201605172007

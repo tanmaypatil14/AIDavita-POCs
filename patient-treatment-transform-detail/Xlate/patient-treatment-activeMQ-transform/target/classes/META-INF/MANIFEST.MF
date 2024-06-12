@@ -1,0 +1,27 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1718107036685
+Build-Jdk: 17.0.11
+Built-By: TanmayP2
+Bundle-Blueprint: OSGI-INF/blueprint/patient-treatment-activemq-transfor
+ m-blueprint.xml
+Bundle-Description: Camel Content-Based Router Example
+Bundle-ManifestVersion: 2
+Bundle-Name: Camel Content-Based Router Example[patient-treatment-active
+ MQ-transform]
+Bundle-SymbolicName: Patient-Xlate
+Bundle-Version: 1.0.0.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+Export-Package: com.citiustech.treatement.aggregator;uses:="org.apache.c
+ amel,org.apache.camel.processor.aggregate";version="1.0.0",com.citiuste
+ ch.treatement.processor;uses:="org.apache.camel";version="1.0.0",com.ci
+ tiustech.treatement.route;uses:="org.apache.camel.builder";version="1.0
+ .0"
+Import-Package: com.citiustech.treatement.aggregator,com.citiustech.trea
+ tement.processor,org.apache.activemq,org.apache.camel;version="[2.23,3)
+ ",org.apache.camel.builder;version="[2.23,3)",org.apache.camel.componen
+ t.file;version="[2.23,3)",org.apache.camel.model;version="[2.23,3)",org
+ .apache.camel.processor.aggregate;version="[2.23,3)",org.json;version="
+ [20211205.0,20211206)",org.osgi.service.blueprint;version="[1.0.0,2.0.0
+ )",org.slf4j;version="[1.7,2)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Tool: Bnd-3.2.0.201605172007
