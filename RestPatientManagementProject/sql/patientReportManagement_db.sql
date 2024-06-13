@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
 --
--- Host: localhost    Database: new_camel_poc_4
+-- Host: localhost    Database: patientreportmanagement
 -- ------------------------------------------------------
 -- Server version	8.0.36
 
@@ -51,7 +51,7 @@ CREATE TABLE `equipment_details` (
   `equipment_id` int NOT NULL,
   `allocation_date_time` varchar(255) DEFAULT NULL,
   `equipment_name` varchar(255) DEFAULT NULL,
-  `in_used` tinyint(1) DEFAULT (false),
+  `in_used` bit(1) DEFAULT NULL,
   PRIMARY KEY (`equipment_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -62,7 +62,7 @@ CREATE TABLE `equipment_details` (
 
 LOCK TABLES `equipment_details` WRITE;
 /*!40000 ALTER TABLE `equipment_details` DISABLE KEYS */;
-INSERT INTO `equipment_details` VALUES (23242,'2024-05-24 13:23:44','Patient Monitors',0),(23243,'2024-05-30 13:23:44','Glucose Monitor',1);
+INSERT INTO `equipment_details` VALUES (23242,'2024-05-24 13:23:44','Patient Monitors',_binary ''),(23243,'2024-05-30 13:23:44','Glucose Monitor',_binary '\0');
 /*!40000 ALTER TABLE `equipment_details` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -92,7 +92,7 @@ CREATE TABLE `nurse_details` (
 
 LOCK TABLES `nurse_details` WRITE;
 /*!40000 ALTER TABLE `nurse_details` DISABLE KEYS */;
-INSERT INTO `nurse_details` VALUES (21323,34,'8353275332','1990-03-04','Linda','Female','Anderson','Nurse'),(21324,37,'8353275332','1990-03-04','Lisa','Female','Anderson','Nurse');
+INSERT INTO `nurse_details` VALUES (21323,37,'8353275332','1990-03-04','Kelly','Female','Anderson','Nurse'),(21324,37,'8353275332','1990-03-04','Lisa','Female','Anderson','Nurse');
 /*!40000 ALTER TABLE `nurse_details` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -123,7 +123,7 @@ CREATE TABLE `patient_demographic_details` (
 
 LOCK TABLES `patient_demographic_details` WRITE;
 /*!40000 ALTER TABLE `patient_demographic_details` DISABLE KEYS */;
-INSERT INTO `patient_demographic_details` VALUES (1234,27,'9284008545','1997-07-14','Tanmay','Male',_binary '','Patil','Patient'),(1235,27,'9284008545','1997-06-06','Kavita','Female',_binary '\0','Patil','Patient');
+INSERT INTO `patient_demographic_details` VALUES (1234,27,'9232133213','1997-07-14','Tanmay','Male',_binary '','Patil','Patient'),(1235,27,'9282131212','1997-06-06','Kavita','Female',_binary '\0','Patil','Patient');
 /*!40000 ALTER TABLE `patient_demographic_details` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -161,7 +161,7 @@ CREATE TABLE `treatment_details` (
 
 LOCK TABLES `treatment_details` WRITE;
 /*!40000 ALTER TABLE `treatment_details` DISABLE KEYS */;
-INSERT INTO `treatment_details` VALUES (4326517,'2024-05-30 15:23:44','Blood Test','2024-05-30 13:23:44',215321,23243,21323,1234),(4326518,'2024-05-30 15:23:44','Blood Test','2024-05-30 13:23:44',215321,23243,21324,1235);
+INSERT INTO `treatment_details` VALUES (4326517,'2024-05-30 15:23:44','Blood Test','2024-05-30 13:23:44',215321,23242,21323,1234),(4326518,'2024-05-30 15:23:44','Blood Test','2024-05-30 13:23:44',215321,23243,21324,1235);
 /*!40000 ALTER TABLE `treatment_details` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -174,4 +174,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-06-12 18:23:58
+-- Dump completed on 2024-06-13 18:16:29
