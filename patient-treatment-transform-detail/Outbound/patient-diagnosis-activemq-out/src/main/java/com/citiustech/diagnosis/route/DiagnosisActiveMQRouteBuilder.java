@@ -46,7 +46,7 @@ public class DiagnosisActiveMQRouteBuilder extends RouteBuilder {
 		   .log(LoggingLevel.INFO, "Received updated diagnosis detail from processor : ${body}")
 		   .convertBodyTo(String.class)
 		   .to(getDestinationQueue())
-		   .log(LoggingLevel.INFO, "Deliverd to Diagnosis Amq subscriber : ${body}");
+		   .log(LoggingLevel.INFO, "Deliverd to Diagnosis Amq topic Backup data : ${body}");
 
 	}
 

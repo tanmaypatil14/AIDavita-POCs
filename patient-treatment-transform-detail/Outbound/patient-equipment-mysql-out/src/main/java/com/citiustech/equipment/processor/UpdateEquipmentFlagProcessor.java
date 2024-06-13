@@ -38,6 +38,7 @@ public class UpdateEquipmentFlagProcessor implements Processor {
 				flag = true;
 				exchange.getIn().setHeader("isActive", flag);
 				exchange.getIn().setHeader("equipmentId", equipmentId);
+				exchange.getIn().setHeader("inUsed", flag);
 				equipmentDetail.put("inUsed", flag);
 
 				exchange.getIn().setBody(treatmentDetail);
@@ -48,6 +49,7 @@ public class UpdateEquipmentFlagProcessor implements Processor {
 				logger.info("Received inactive patient with id " + patientId + " and inactive patient treatment details : "
 						+ treatmentDetail);
 				exchange.getIn().setHeader("isActive", flag);
+				exchange.getIn().setHeader("inUsed", flag);
 			}
 		} else {
 			logger.error("equipmentDetail does not exist");

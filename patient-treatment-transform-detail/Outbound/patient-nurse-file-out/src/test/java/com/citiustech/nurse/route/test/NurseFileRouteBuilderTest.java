@@ -10,7 +10,7 @@ import org.apache.camel.component.mock.MockEndpoint;
 import org.apache.camel.test.blueprint.CamelBlueprintTestSupport;
 import org.junit.Test;
 
-public class NurseFileOutTest extends CamelBlueprintTestSupport {
+public class NurseFileRouteBuilderTest extends CamelBlueprintTestSupport {
 	@Override
 	protected String getBlueprintDescriptor() {
 		// TODO Auto-generated method stub
@@ -23,7 +23,7 @@ public class NurseFileOutTest extends CamelBlueprintTestSupport {
 	}
 
 	@Test
-	public void testActiveNurseDetail() throws Exception {
+	public void testActivePatientCondition() throws Exception {
 		context.getRouteDefinition("nurseFileOut").adviceWith(context, new AdviceWithRouteBuilder() {
 
 			@Override
@@ -51,7 +51,7 @@ public class NurseFileOutTest extends CamelBlueprintTestSupport {
 	}
 
 	@Test
-	public void testInActiveNurseDetail() throws Exception {
+	public void testInActivePatientCondition() throws Exception {
 		context.getRouteDefinition("nurseFileOut").adviceWith(context, new AdviceWithRouteBuilder() {
 
 			@Override

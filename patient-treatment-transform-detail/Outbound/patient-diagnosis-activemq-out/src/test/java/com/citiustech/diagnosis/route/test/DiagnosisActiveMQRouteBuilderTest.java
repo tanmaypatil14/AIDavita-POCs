@@ -12,7 +12,7 @@ import org.apache.camel.component.mock.MockEndpoint;
 import org.apache.camel.test.blueprint.CamelBlueprintTestSupport;
 import org.junit.Test;
 
-public class DiagnosisActiveMQOutTest extends CamelBlueprintTestSupport {
+public class DiagnosisActiveMQRouteBuilderTest extends CamelBlueprintTestSupport {
 
 	@Override
 	protected String getBlueprintDescriptor() {
@@ -34,7 +34,7 @@ public class DiagnosisActiveMQOutTest extends CamelBlueprintTestSupport {
 			public void configure() throws Exception {
 				replaceFromWith("direct:in");
 
-				weaveByToUri("activemq:topic:diagnosisSubscribers").replace().to("mock:diagnosisTest");
+				weaveByToUri("activemq:topic:diagnosisBackupData").replace().to("mock:diagnosisTest");
 
 			}
 		});

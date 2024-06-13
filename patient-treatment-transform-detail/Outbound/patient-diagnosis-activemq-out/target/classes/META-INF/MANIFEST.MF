@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1718107040477
+Bnd-LastModified: 1718272630338
 Build-Jdk: 17.0.11
 Built-By: TanmayP2
 Bundle-Blueprint: OSGI-INF/blueprint/patient-diagnosis-activemq-out-blue

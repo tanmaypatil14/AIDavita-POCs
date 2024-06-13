@@ -10,7 +10,7 @@ import org.apache.camel.component.mock.MockEndpoint;
 import org.apache.camel.test.blueprint.CamelBlueprintTestSupport;
 import org.junit.Test;
 
-public class EquipmentMysqlOutTest extends CamelBlueprintTestSupport {
+public class EquipmentMysqlRouteBuilderTest extends CamelBlueprintTestSupport {
 
 	@Override
 	protected String getBlueprintDescriptor() {
@@ -24,7 +24,7 @@ public class EquipmentMysqlOutTest extends CamelBlueprintTestSupport {
 	}
 
 	@Test
-	public void testActiveEquipmentUpdate() throws Exception {
+	public void testActivePatientCondition() throws Exception {
 		context.getRouteDefinition("equipmentMysqlOut").adviceWith(context, new AdviceWithRouteBuilder() {
 
 			@Override
@@ -39,7 +39,6 @@ public class EquipmentMysqlOutTest extends CamelBlueprintTestSupport {
 		context.start();
 
 		String activePatient = getFileContents("src/test/resources/data/in/treatment1.json");
-//		String inActivePatient = getFileContents("src/test/resources/data/in/treatment2.json");
 
 		MockEndpoint mockEndpoint = getMockEndpoint("mock:result");
 
@@ -53,7 +52,7 @@ public class EquipmentMysqlOutTest extends CamelBlueprintTestSupport {
 	}
 
 	@Test
-	public void testInActiveEquipmentUpdate() throws Exception {
+	public void testInActivePatientCondition() throws Exception {
 		context.getRouteDefinition("equipmentMysqlOut").adviceWith(context, new AdviceWithRouteBuilder() {
 
 			@Override
@@ -74,6 +73,62 @@ public class EquipmentMysqlOutTest extends CamelBlueprintTestSupport {
 		template.sendBody("direct:in", inActivePatient);
 
 		mockEndpoint.expectedHeaderReceived("isActive", false);
+		assertMockEndpointsSatisfied();
+
+		context.stop();
+
+	}
+	
+	@Test
+	public void testActivePatientEquipmentFlag() throws Exception {
+		context.getRouteDefinition("equipmentMysqlOut").adviceWith(context, new AdviceWithRouteBuilder() {
+
+			@Override
+			public void configure() throws Exception {
+				replaceFromWith("direct:in");
+
+				weaveAddLast().to("mock:result");
+
+			}
+		});
+
+		context.start();
+
+		String activePatient = getFileContents("src/test/resources/data/in/treatment1.json");
+
+		MockEndpoint mockEndpoint = getMockEndpoint("mock:result");
+
+		template.sendBody("direct:in", activePatient);
+
+		mockEndpoint.expectedHeaderReceived("inUsed", true);
+		assertMockEndpointsSatisfied();
+
+		context.stop();
+
+	}
+
+	@Test
+	public void testInActivePatientEquipmentFlag() throws Exception {
+		context.getRouteDefinition("equipmentMysqlOut").adviceWith(context, new AdviceWithRouteBuilder() {
+
+			@Override
+			public void configure() throws Exception {
+				replaceFromWith("direct:in");
+
+				weaveAddLast().to("mock:result");
+
+			}
+		});
+
+		context.start();
+
+		String inActivePatient = getFileContents("src/test/resources/data/in/treatment2.json");
+
+		MockEndpoint mockEndpoint = getMockEndpoint("mock:result");
+
+		template.sendBody("direct:in", inActivePatient);
+
+		mockEndpoint.expectedHeaderReceived("inUsed", false);
 		assertMockEndpointsSatisfied();
 
 		context.stop();

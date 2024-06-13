@@ -12,7 +12,7 @@ import org.apache.camel.component.mock.MockEndpoint;
 import org.apache.camel.test.blueprint.CamelBlueprintTestSupport;
 import org.junit.Test;
 
-public class TreatmentRestInTest extends CamelBlueprintTestSupport {
+public class TreatmentRestRouteBuilderTest extends CamelBlueprintTestSupport {
 
 	@Override
 	protected String getBlueprintDescriptor() {

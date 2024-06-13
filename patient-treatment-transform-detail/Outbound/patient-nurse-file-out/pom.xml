@@ -11,7 +11,7 @@
 		<relativePath>../../pom.xml</relativePath>
 	</parent>
 	<groupId>com.citiustech.nurse</groupId>
-	<artifactId>Patient-Nurse-File-Out</artifactId>
+	<artifactId>patient-nurse-file-out</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>bundle</packaging>
 	<name>patient-nurse-file-out</name>
