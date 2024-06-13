@@ -22,6 +22,7 @@ public class UpdateEquipmentFlagProcessor implements Processor {
 		Integer patientId = (Integer) patientDemographicDetail.get("patientId");
 		JSONObject equipmentDetail = treatmentDetail.getJSONObject("equipmentDetails");
 		Integer equipmentId = (Integer) equipmentDetail.get("equipmentId");
+		exchange.getIn().setHeader("equipmentId", equipmentId);
 
 		if (!treatmentDetail.isEmpty()) {
 			logger.info("treatmentDetails exist = " + treatmentDetail);
@@ -37,7 +38,7 @@ public class UpdateEquipmentFlagProcessor implements Processor {
 				logger.info("patient is active with id : " + patientId);
 				flag = true;
 				exchange.getIn().setHeader("isActive", flag);
-				exchange.getIn().setHeader("equipmentId", equipmentId);
+				
 				exchange.getIn().setHeader("inUsed", flag);
 				equipmentDetail.put("inUsed", flag);
 

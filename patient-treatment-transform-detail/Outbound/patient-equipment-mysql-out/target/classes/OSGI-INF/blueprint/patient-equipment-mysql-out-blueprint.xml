@@ -16,7 +16,7 @@
     <cm:property-placeholder id="myblueprint.placeholder" persistent-id="camel.blueprint">
         <cm:default-properties>
             <cm:property name="sourceQueue" value="activemq:topic:xlateDestinationQueue"/>
-            <cm:property name="updateEquipementQuery" value="sql:UPDATE equipment_details SET in_used = true WHERE equipment_id = :#equipmentId?dataSource=#mySqlDriverManager"/>
+            <cm:property name="updateEquipementQuery" value="sql:UPDATE equipment_details SET in_used = :#inUsed WHERE equipment_id = :#equipmentId?dataSource=#mySqlDriverManager"/>
         </cm:default-properties>
     </cm:property-placeholder>
     <camelContext id="equipment-mysql-out" xmlns="http://camel.apache.org/schema/blueprint">

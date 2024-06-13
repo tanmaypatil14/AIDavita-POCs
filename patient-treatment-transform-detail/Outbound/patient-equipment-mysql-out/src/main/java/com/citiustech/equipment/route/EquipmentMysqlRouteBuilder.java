@@ -56,6 +56,7 @@ public class EquipmentMysqlRouteBuilder extends RouteBuilder {
 		           .to(getUpdateEquipementQuery())
 		        .otherwise()
 		           .log(LoggingLevel.INFO, "Received inactive patient equipment detail from processor : ${body}")
+		           .to(getUpdateEquipementQuery())
 		           .end()
 		        .log(LoggingLevel.INFO, "Equipment detail flag updated according to patient status");
 	}
